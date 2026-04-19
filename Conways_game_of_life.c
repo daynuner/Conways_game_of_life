@@ -1,16 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-#define W 40
-#define H 20
+#define W 45
+#define H 25
 
 int main(void) {
     int g[H][W] = {0};
     int next[H][W] = {0};
     int i, j, x, y, n;
 
-    g[10][10] = 1;
-    g[10][11] = 1;
-    g[10][12] = 1;
+    srand((unsigned)time(NULL));
+
+    for (i = 0; i < H; i++) {
+        for (j = 0; j < W; j++) {
+            g[i][j] = (rand() % 5 == 0);
+        }
+    }
 
     for (i = 0; i < H; i++) {
         for (j = 0; j < W; j++) {
