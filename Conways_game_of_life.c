@@ -18,29 +18,35 @@ int main(void) {
         }
     }
 
-    for (i = 0; i < H; i++) {
-        for (j = 0; j < W; j++) {
-            n = 0;
-            for (y = -1; y <= 1; y++) {
-                for (x = -1; x <= 1; x++) {
-                    if (x || y) {
-                        int ii = (i + y + H) % H;
-                        int jj = (j + x + W) % W;
-                        n += g[ii][jj];
+    while (1) {
+        printf("\033[H");
+
+        for (i = 0; i < H; i++) {
+            for (j = 0; j < W; j++) {
+                n = 0;
+                for (y = -1; y <= 1; y++) {
+                    for (x = -1; x <= 1; x++) {
+                        if (x || y) {
+                            int ii = (i + y + H) % H;
+                            int jj = (j + x + W) % W;
+                            n += g[ii][jj];
+                        }
                     }
                 }
+
+                if (g[i][j]) next[i][j] = (n == 2 || n == 3);
+                else next[i][j] = (n == 3);
+
+                putchar(g[i][j] ? 'O' : ' ');
             }
-
-            if (g[i][j]) next[i][j] = (n == 2 || n == 3);
-            else next[i][j] = (n == 3);
+            putchar('\n');
         }
-    }
 
-    for (i = 0; i < H; i++) {
-        for (j = 0; j < W; j++) {
-            putchar(next[i][j] ? '#' : ' ');
+        for (i = 0; i < H; i++) {
+            for (j = 0; j < W; j++) {
+                g[i][j] = next[i][j];
+            }
         }
-        putchar('\n');
     }
 
     return 0;
