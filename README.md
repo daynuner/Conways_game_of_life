@@ -1,4 +1,4 @@
-##Conway's Game of Life (Terminal ANSI Version)
+#Conway's Game of Life (Terminal ANSI Version)
 Простая реализация игры «Жизнь» Конвея на C с цветной визуализацией в терминале.
 # Описание
 Программа моделирует клеточный автомат Game of Life с бесконечным циклом обновления.
@@ -25,11 +25,11 @@
 - Терминал с поддержкой ANSI escape-кодов
 (Linux, macOS, или Windows Terminal / PowerShell)
 #Сборка
-'''Bash
+'''
 gcc -O2 life.c -o life
 '''
 #Запуск
-'''Bash
+'''
 ./life
 '''
 #Управление
